@@ -34,7 +34,8 @@ $cleanDirsCount = count($cleanDirs);
 $i = 1;
 
 foreach ($cleanDirs as $name) {
-    echo "[$i / $cleanDirsCount] Cleaning up $name directory... ";
+    $basename = pathinfo($name, PATHINFO_DIRNAME);
+    echo "[$i / $cleanDirsCount] Cleaning up \"$basename\" directory... ";
 
     $dirFiles = glob(__DIR__ . "/$name/*");
     array_walk($dirFiles, function ($path) {
@@ -63,7 +64,7 @@ $i = 1;
 
 foreach ($files as $filename) {
     $name = pathinfo($filename, PATHINFO_FILENAME);
-    echo "[$i / $count] Converting file $name... ";
+    echo "[$i / $count] Converting file \"$name\"... ";
 
     $input = new Csv;
     $spreadsheet = $input->load($filename);
