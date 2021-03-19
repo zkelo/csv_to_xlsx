@@ -1,6 +1,6 @@
 <?php
 
-ini_set('memory_limit', '128M');
+ini_set('memory_limit', '4G');
 
 use Kodus\Cache\FileCache;
 use PhpOffice\PhpSpreadsheet\Reader\Csv;
