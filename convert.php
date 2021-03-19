@@ -67,7 +67,7 @@ $cache = new FileCache($cacheDir, 86400);
 echo 'Cleaning up cache... ';
 $cache->clear();
 
-echo ' [OK]', PHP_EOL;
+echo '[OK]', PHP_EOL;
 Settings::setCache($cache);
 
 echo PHP_EOL, 'Converting...', PHP_EOL, '-----', PHP_EOL;
