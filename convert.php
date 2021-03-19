@@ -27,8 +27,7 @@ echo "Found $count files inside input directory", PHP_EOL, PHP_EOL;
 echo 'Preparing...', PHP_EOL, '-----', PHP_EOL;
 
 $cleanDirs = [
-    $outputDir,
-    $cacheDir
+    $outputDir
 ];
 $cleanDirsCount = count($cleanDirs);
 
@@ -50,12 +49,17 @@ foreach ($cleanDirs as $name) {
     echo '[OK]', PHP_EOL;
 }
 
+$cache = new FileCache($cacheDir, 86400);
+
+echo 'Cleaning up cache... ';
+$cache->clear();
+
+echo ' [OK]', PHP_EOL;
+Settings::setCache($cache);
+
 echo PHP_EOL, 'Converting...', PHP_EOL, '-----', PHP_EOL;
 
 $i = 1;
-
-$cache = new FileCache($cacheDir, 86400);
-Settings::setCache($cache);
 
 foreach ($files as $filename) {
     $name = pathinfo($filename, PATHINFO_FILENAME);
