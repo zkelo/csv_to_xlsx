@@ -10,7 +10,16 @@ $outputDir = __DIR__ . '/out';
 
 $files = glob($inputDir . '/*.csv');
 
+$count = count($files);
+
+echo "Found $count files inside input directory", PHP_EOL;
+echo 'Converting...', PHP_EOL, PHP_EOL, '-----', PHP_EOL, PHP_EOL;
+
+$i = 1;
+
 foreach ($files as $filename) {
+    echo "[$i / $count] Converting file $filename... ";
+
     $input = new Csv;
     $spreadsheet = $input->load($filename);
 
@@ -18,4 +27,6 @@ foreach ($files as $filename) {
 
     $output = new Xlsx($spreadsheet);
     $output->save($savepath);
+
+    echo '[OK]', PHP_EOL;
 }
