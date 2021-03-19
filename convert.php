@@ -37,8 +37,8 @@ $i = 1;
 foreach ($cleanDirs as $name) {
     echo "[$i / $cleanDirsCount] Cleaning up $name directory... ";
 
-    $files = glob(__DIR__ . "/$name/*");
-    array_walk($files, function ($path) {
+    $dirFiles = glob(__DIR__ . "/$name/*");
+    array_walk($dirFiles, function ($path) {
         $extension = pathinfo($path, PATHINFO_EXTENSION);
         if (in_array($extension, ['gitignore', 'gitkeep'])) {
             return;
