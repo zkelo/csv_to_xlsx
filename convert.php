@@ -34,7 +34,7 @@ $cleanDirsCount = count($cleanDirs);
 $i = 1;
 
 foreach ($cleanDirs as $name) {
-    $basename = pathinfo($name, PATHINFO_DIRNAME);
+    $basename = pathinfo($name, PATHINFO_BASENAME);
     echo "[$i / $cleanDirsCount] Cleaning up \"$basename\" directory... ";
 
     $dirFiles = glob(__DIR__ . "/$name/*");
@@ -69,10 +69,12 @@ foreach ($files as $filename) {
     $input = new Csv;
     $spreadsheet = $input->load($filename);
 
-    $savepath = pathinfo($filename, PATHINFO_FILENAME);
+    $filename = pathinfo($filename, PATHINFO_FILENAME);
+    $filename .= '.xlsx';
+    $filename = $outputDir . "/$filename";
 
     $output = new Xlsx($spreadsheet);
-    $output->save($savepath);
+    $output->save($filename);
 
     echo '[OK]', PHP_EOL;
 }
