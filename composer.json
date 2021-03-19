@@ -1,0 +1,14 @@
+{
+    "name": "zkelo/csv_to_xlsx",
+    "description": "An easy-to-use CSV to XLSX converter",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aleksandr Riabov",
+            "email": "ar161ru@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
