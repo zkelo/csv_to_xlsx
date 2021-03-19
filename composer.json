@@ -11,6 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "phpoffice/phpspreadsheet": "dev-master"
+        "phpoffice/phpspreadsheet": "dev-master",
+        "kodus/file-cache": "dev-master"
     }
 }
