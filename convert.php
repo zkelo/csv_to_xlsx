@@ -26,6 +26,18 @@ echo "Found $count files inside input directory", PHP_EOL, PHP_EOL;
 
 echo 'Preparing...', PHP_EOL, '-----', PHP_EOL;
 
+$dirs = [
+    $inputDir,
+    $outputDir,
+    $cacheDir
+];
+
+foreach ($dirs as $dir) {
+    if (!file_exists($dir)) {
+        mkdir($dir, 0775);
+    }
+}
+
 $cleanDirs = [
     $outputDir
 ];
